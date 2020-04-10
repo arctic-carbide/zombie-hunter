@@ -9,7 +9,8 @@ public class BulletBehavior : MonoBehaviour
 
     [SerializeField]
     private GameObject bullet;
-
+    [SerializeField]
+    private AudioSource bang;
     private Vector2 direction;
     private float lookAngle;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class BulletBehavior : MonoBehaviour
     private void FireBullet(){
         GameObject firedBullet = Instantiate(bullet, barrelTip.position, barrelTip.rotation);
         firedBullet.GetComponent<Rigidbody2D>().velocity = barrelTip.up * 10f;
+        bang.Play();
         Destroy(firedBullet, 0.5f);
     }
 }
