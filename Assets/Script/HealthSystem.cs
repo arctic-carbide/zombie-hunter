@@ -34,11 +34,14 @@ public class HealthSystem : MonoBehaviour
     public void Damage(int amount)
     {
         _currentHealth -= amount;
-        OnDamagedEvent?.Invoke(amount);
 
         if (_currentHealth < 1)
         {
             Die();
+        }
+        else
+        {
+            OnDamagedEvent?.Invoke(amount);
         }
     }
 
@@ -50,7 +53,7 @@ public class HealthSystem : MonoBehaviour
 
     public void Die()
     {
-
+        // do something like destroy the player object or whatever
         OnDeathEvent?.Invoke();
     }
 }
