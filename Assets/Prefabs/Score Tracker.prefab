@@ -71,13 +71,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 2
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health: '
+  m_Text: 'Score: '
 --- !u!114 &2520136229198951408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 3040384254623983416}
   - component: {fileID: 4608495387072830660}
   - component: {fileID: 4943806590552208290}
-  - component: {fileID: 1246682734238393834}
+  - component: {fileID: 2644904779019024534}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -170,7 +170,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1246682734238393834
+--- !u!114 &2644904779019024534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6107283790218968188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b8953e4700baf4b998719faaa66eab, type: 3}
+  m_Script: {fileID: 11500000, guid: 33a44fbaed44a224c8d02ccc0c1bacf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 3991088204049158118}
   - component: {fileID: 4569893322308564947}
   m_Layer: 5
-  m_Name: Health Tracker
+  m_Name: Score Tracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class HealthSystem : MonoBehaviour
 {
-    public delegate void OnHealthChanged(int currentHealth);
-    public delegate void OnDamage(int amount);
-    public delegate void OnDeath();
-    public delegate void OnHeal(int amount);
+    public delegate void HealthChangedDelegate(int currentHealth);
+    public delegate void HealDelegate(int amount);
+    public delegate void DamageDelegate(int amount);
+    public delegate void DeathDelegate();
 
     // EVENTS
-    public event OnDamage OnDamagedEvent;
-    public event OnHeal OnHealEvent;
-    public event OnHealthChanged OnHealthChangedEvent;
-    public event OnDeath OnDeathEvent;
+    public event DamageDelegate OnDamagedEvent;
+    public event HealDelegate OnHealEvent;
+    public event HealthChangedDelegate OnHealthChangedEvent;
+    public event DeathDelegate OnDeathEvent;
 
     public int CurrentHealth => _currentHealth;
     private int _currentHealth;
@@ -43,12 +44,16 @@ public class HealthSystem : MonoBehaviour
         {
             OnDamagedEvent?.Invoke(amount);
         }
+            
+        OnHealthChangedEvent?.Invoke(_currentHealth);
     }
 
     public void Heal(int amount)
     {
         _currentHealth += amount;
+
         OnHealEvent?.Invoke(amount);
+        OnHealthChangedEvent?.Invoke(_currentHealth);
     }
 
     public void Die()
