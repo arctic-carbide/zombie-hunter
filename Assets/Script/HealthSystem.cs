@@ -15,25 +15,28 @@ public class HealthSystem : MonoBehaviour
     public event OnHealthChanged OnHealthChangedEvent;
     public event OnDeath OnDeathEvent;
 
-    public int StartingHealth = 3;
-    private int currentHealth;
+    public int CurrentHealth => _currentHealth;
+    private int _currentHealth;
+
+    [SerializeField]
+    private int startingHealth = 3;
 
     private void Start()
     {
-        currentHealth = StartingHealth;
+        _currentHealth = startingHealth;
 
         // NOTE: the ? before an event is a null test; effectively "if (event != null)" 
 
-        OnHealthChangedEvent?.Invoke(currentHealth);
+        OnHealthChangedEvent?.Invoke(_currentHealth);
         
     }
 
     public void Damage(int amount)
     {
-        currentHealth -= amount;
+        _currentHealth -= amount;
         OnDamagedEvent?.Invoke(amount);
 
-        if (currentHealth < 1)
+        if (_currentHealth < 1)
         {
             Die();
         }
@@ -41,7 +44,7 @@ public class HealthSystem : MonoBehaviour
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
+        _currentHealth += amount;
         OnHealEvent?.Invoke(amount);
     }
 
