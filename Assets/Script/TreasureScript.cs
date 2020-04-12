@@ -25,6 +25,8 @@ public class TreasureScript : MonoBehaviour
         {
             collectedTreasure = true;
             Destroy (treasure.gameObject);
+
+            ScoringSystem.Increase(1);
         }
     }
 }

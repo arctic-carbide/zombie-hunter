@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    [SerializeField]
-    private Transform barrelTip;
+
+    /* NOTE ~ Mitchell
+     * assigned null to private fields to suppress warnings in the unity console
+     * only have to do this for private fields; if they were public, they'd still show up in the inspector and without warnings
+     */
+
+    //private Transform barrelTip = null;
 
     [SerializeField]
-    private GameObject bullet;
+    private GameObject bullet = null;
     [SerializeField]
-    private AudioSource bang;
+    private AudioSource bang = null;
+    
     private Vector2 direction;
     private float lookAngle;
+
+
     // Start is called before the first frame update
     void Update()
     {
@@ -26,8 +34,8 @@ public class BulletBehavior : MonoBehaviour
     }
 
     private void FireBullet(){
-        GameObject firedBullet = Instantiate(bullet, barrelTip.position, barrelTip.rotation);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = barrelTip.up * 5f;
+        GameObject firedBullet = Instantiate(bullet, transform.position, transform.rotation);
+        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 5f;
         bang.Play();                
     }
 }

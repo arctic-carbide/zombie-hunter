@@ -30,30 +30,34 @@ public class ZombieAi : MonoBehaviour {
         animator = gameObject.GetComponent<Animator>();
 
         // Add all our waypoints into the waypoints array
-        Transform point1 = GameObject.Find("p1").transform;
-        Transform point2 = GameObject.Find("p2").transform;
-        Transform point3 = GameObject.Find("p3").transform;
-        Transform point4 = GameObject.Find("p4").transform;
-        Transform point5 = GameObject.Find("p5").transform;
-        Transform point6 = GameObject.Find("p6").transform;
-        Transform point7 = GameObject.Find("p7").transform;
-        Transform point8 = GameObject.Find("p8").transform;
-        Transform point9 = GameObject.Find("p9").transform;
-        Transform point10 = GameObject.Find("p10").transform;
-        Transform point11 = GameObject.Find("p11").transform;
-        waypoints = new Transform[11] {
-            point1,
-            point2,
-            point3,
-            point4,
-            point5,
-            point6,
-            point7,
-            point8,
-            point9,
-            point10,
-            point11
-        };
+        waypoints = GameObject.Find("Waypoints").GetComponentsInChildren<Transform>();
+        
+        //Transform point1 = GameObject.Find("p1").transform;
+        //Transform point2 = GameObject.Find("p2").transform;
+        //Transform point3 = GameObject.Find("p3").transform;
+        //Transform point4 = GameObject.Find("p4").transform;
+        //Transform point5 = GameObject.Find("p5").transform;
+        //Transform point6 = GameObject.Find("p6").transform;
+        //Transform point7 = GameObject.Find("p7").transform;
+        //Transform point8 = GameObject.Find("p8").transform;
+        //Transform point9 = GameObject.Find("p9").transform;
+        //Transform point10 = GameObject.Find("p10").transform;
+        //Transform point11 = GameObject.Find("p11").transform;
+
+        //waypoints = new Transform[11] {
+        //    point1,
+        //    point2,
+        //    point3,
+        //    point4,
+        //    point5,
+        //    point6,
+        //    point7,
+        //    point8,
+        //    point9,
+        //    point10,
+        //    point11
+        //};
+
         
     }
 

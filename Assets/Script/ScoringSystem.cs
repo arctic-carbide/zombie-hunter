@@ -6,12 +6,12 @@ public class ScoringSystem : MonoBehaviour
 {
     public delegate void ScoreChanged(int score);
 
-    public event ScoreChanged OnScoreChangedEvent;
+    public static event ScoreChanged OnScoreChangedEvent;
 
-    private int _currentScore;
+    private static int _currentScore;
     private const int StartingScore = 0;
 
-    public int CurrentScore => _currentScore;
+    public static int CurrentScore => _currentScore;
 
     void Start()
     {
@@ -20,14 +20,14 @@ public class ScoringSystem : MonoBehaviour
         OnScoreChangedEvent?.Invoke(_currentScore);
     }
 
-    public void Increase(int amount)
+    public static void Increase(int amount)
     {
         _currentScore += amount;
 
         OnScoreChangedEvent?.Invoke(_currentScore);
     }
 
-    public void Decrease(int amount)
+    public static void Decrease(int amount)
     {
         _currentScore -= amount;
 
