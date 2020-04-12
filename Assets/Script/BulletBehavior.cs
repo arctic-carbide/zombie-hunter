@@ -27,8 +27,7 @@ public class BulletBehavior : MonoBehaviour
 
     private void FireBullet(){
         GameObject firedBullet = Instantiate(bullet, barrelTip.position, barrelTip.rotation);
-        firedBullet.GetComponent<Rigidbody2D>().velocity = barrelTip.up * 10f;
-        bang.Play();
-        Destroy(firedBullet, 0.5f);
+        firedBullet.GetComponent<Rigidbody2D>().velocity = barrelTip.up * 5f;
+        bang.Play();                
     }
 }

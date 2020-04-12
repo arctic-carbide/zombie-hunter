@@ -21,10 +21,10 @@ public class TreasureScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("anything", treasure);
-        //if (other.gameObject.tag == "Player") 
-        //{
+        if (other.gameObject.tag == "Player") 
+        {
             collectedTreasure = true;
             Destroy (treasure.gameObject);
-        //}
+        }
     }
 }
