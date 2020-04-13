@@ -17,7 +17,7 @@ public class ZombieAi : MonoBehaviour {
     // Where is it going and how fast?
     Vector3 direction;
     private float walkSpeed = 2f;
-    public int currentTarget;    
+    private int currentTarget;    
     private Transform[] waypoints = null;
 
     // This runs when the zombie is added to the scene
@@ -93,7 +93,8 @@ public class ZombieAi : MonoBehaviour {
         // But make sure it is not the same as the last one
 
         nextPoint = nextPoint + 1;
-        if(nextPoint == 11){
+        if(nextPoint == 10)
+        {
             nextPoint = 1;
         }
         currentTarget = nextPoint;
