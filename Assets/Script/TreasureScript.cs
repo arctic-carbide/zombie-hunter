@@ -24,7 +24,7 @@ public class TreasureScript : MonoBehaviour
         {
             //collectedTreasure = true;
 
-            system.Play(pickupSound);
+            AudioSource.PlayClipAtPoint(pickupSound, Camera.main.transform.position);
 
             Destroy(gameObject);
             ScoringSystem.Increase(1);
