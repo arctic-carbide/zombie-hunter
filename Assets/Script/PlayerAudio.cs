@@ -58,8 +58,8 @@ public class PlayerAudio : MonoBehaviour
 
         if (clips != null && clips.Length > 0)
         {
-            source.clip = clips[rng.Next(0, clips.Length) % clips.Length];
-            source.Play();
+            var clip = clips[rng.Next(0, clips.Length) % clips.Length];
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
             
         }
     }
