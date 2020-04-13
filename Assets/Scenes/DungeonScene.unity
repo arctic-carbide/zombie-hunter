@@ -534,28 +534,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &303813243 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8969195079765457099, guid: ea408faee18407c4eaba5aacc648b893,
-    type: 3}
-  m_PrefabInstance: {fileID: 706401075}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &303813250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303813243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684b4e94f1414e848baccf374567c0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageSourceTags:
-  - Projectile
-  invincibilityTime: 0
-  startingHealth: 3
 --- !u!1 &366565591
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,31 +766,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2220677487525338146, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.039515123
-      objectReference: {fileID: 0}
-    - target: {fileID: -2220677487525338146, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.27199185
-      objectReference: {fileID: 0}
-    - target: {fileID: -2220677487525338146, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.022861421
-      objectReference: {fileID: 0}
-    - target: {fileID: -2220677487525338146, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.3843295
-      objectReference: {fileID: 0}
-    - target: {fileID: 175514667813728586, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 94348ac277087a34188900d7dd99c8d3, type: 2}
     - target: {fileID: 1761952987073865798, guid: ea408faee18407c4eaba5aacc648b893,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -868,30 +821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1761952987073865798, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1761952987073865798, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2180761095570346518, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8969195079765457099, guid: ea408faee18407c4eaba5aacc648b893,
         type: 3}
       propertyPath: m_Name
       value: zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 8969195079765457099, guid: ea408faee18407c4eaba5aacc648b893,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea408faee18407c4eaba5aacc648b893, type: 3}
