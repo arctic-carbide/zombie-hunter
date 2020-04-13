@@ -37,6 +37,8 @@ public class BulletBehavior : MonoBehaviour
         GameObject firedBullet = Instantiate(bullet, transform.position, transform.rotation);
         Physics2D.IgnoreCollision(transform.parent.GetComponent<Collider2D>(), firedBullet.GetComponent<Collider2D>());
         firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 5f;
-        bang.Play();                
+
+        // bang.Play();                
+        AudioSource.PlayClipAtPoint(bang.clip, Camera.main.transform.position);
     }
 }

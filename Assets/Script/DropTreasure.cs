@@ -7,7 +7,7 @@ public class DropTreasure : MonoBehaviour
 
     public GameObject treasure;
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         Random rng = new Random();
 
