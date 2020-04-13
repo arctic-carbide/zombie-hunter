@@ -10,14 +10,14 @@ public class ZombieAi : MonoBehaviour {
     private Animator animator;
     bool chasing = false;
     bool waiting = false;
-    int nextPoint = -1;
+    int nextPoint = 1;
     private float distanceFromTarget;
     public bool inViewCone;
 
     // Where is it going and how fast?
     Vector3 direction;
     private float walkSpeed = 2f;
-    private int currentTarget;    
+    public int currentTarget;    
     private Transform[] waypoints = null;
 
     // This runs when the zombie is added to the scene
@@ -93,7 +93,9 @@ public class ZombieAi : MonoBehaviour {
         // But make sure it is not the same as the last one
 
         nextPoint = nextPoint + 1;
-    
+        if(nextPoint == 11){
+            nextPoint = 1;
+        }
         currentTarget = nextPoint;
 
         Debug.Log(currentTarget);
