@@ -81,7 +81,7 @@ public class ZombieAi : MonoBehaviour {
     private void FixedUpdate()
     {
         // Give the values to the FSM (animator)
-        distanceFromTarget = Vector3.Distance(waypoints[currentTarget].position, transform.position);
+        distanceFromTarget = Vector2.Distance(waypoints[currentTarget].position, transform.position);
         animator.SetFloat("distanceFromWaypoint", distanceFromTarget);
         animator.SetBool("playerInSight", inViewCone);
 
