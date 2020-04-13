@@ -7,7 +7,7 @@ public class UIHealthUpdater : MonoBehaviour
 {
     public HealthSystem target;
 
-    private void Start()
+    private void Awake()
     {
         target.OnHealthChangedEvent += UpdateText;
     }

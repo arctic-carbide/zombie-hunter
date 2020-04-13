@@ -18,6 +18,7 @@ TagManager:
   - p9
   - p10
   - p11
+  - Projectile
   layers:
   - Default
   - TransparentFX

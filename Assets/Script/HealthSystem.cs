@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using System;
 
 public class HealthSystem : MonoBehaviour
@@ -16,27 +17,30 @@ public class HealthSystem : MonoBehaviour
     public event HealthChangedDelegate OnHealthChangedEvent;
     public event DeathDelegate OnDeathEvent;
 
-    public int CurrentHealth => _currentHealth;
-    private int _currentHealth;
+    public string[] damageSourceTags = { "Projectile" };
+    public int CurrentHealth => currentHealth;
+    private int currentHealth;
+    private bool invincible = false;
+    public int invincibilityTime = 3; // in seconds
 
     [SerializeField]
     private int startingHealth = 3;
 
     private void Start()
     {
-        _currentHealth = startingHealth;
+        currentHealth = startingHealth;
 
         // NOTE: the ? before an event is a null test; effectively "if (event != null)" 
 
-        OnHealthChangedEvent?.Invoke(_currentHealth);
+        OnHealthChangedEvent?.Invoke(currentHealth);
         
     }
 
     public void Damage(int amount)
     {
-        _currentHealth -= amount;
+        currentHealth -= amount;
 
-        if (_currentHealth < 1)
+        if (currentHealth < 1)
         {
             Die();
         }
@@ -45,20 +49,42 @@ public class HealthSystem : MonoBehaviour
             OnDamagedEvent?.Invoke(amount);
         }
             
-        OnHealthChangedEvent?.Invoke(_currentHealth);
+        OnHealthChangedEvent?.Invoke(currentHealth);
+
+        StartCoroutine(ToggleInvincibility(invincibilityTime));
     }
 
     public void Heal(int amount)
     {
-        _currentHealth += amount;
+        currentHealth += amount;
 
         OnHealEvent?.Invoke(amount);
-        OnHealthChangedEvent?.Invoke(_currentHealth);
+        OnHealthChangedEvent?.Invoke(currentHealth);
     }
 
     public void Die()
     {
         // do something like destroy the player object or whatever
         OnDeathEvent?.Invoke();
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (invincible) return;
+
+        if (damageSourceTags.Any(t => collision.collider.CompareTag(t)))
+        {
+            Damage(1);
+        }
+    }
+
+    private IEnumerator ToggleInvincibility(int time)
+    {
+        invincible = true;
+
+        yield return new WaitForSeconds(time);
+
+        invincible = false;
     }
 }
