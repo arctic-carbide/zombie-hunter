@@ -76,7 +76,7 @@ public class HealthSystem : MonoBehaviour
         if (damageSourceTags.Any(t => collision.collider.CompareTag(t)))
         {
             Damage(1);
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
         }
     }
 

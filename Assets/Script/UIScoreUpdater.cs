@@ -12,7 +12,7 @@ public class UIScoreUpdater : MonoBehaviour
     private void Start()
     {
         score = GetComponent<Text>();
-        ScoringSystem.OnScoreChangedEvent += UpdateScoreText;
+        target.OnScoreChangedEvent += UpdateScoreText;
     }
 
     public void UpdateScoreText(int reportedScoreValue)

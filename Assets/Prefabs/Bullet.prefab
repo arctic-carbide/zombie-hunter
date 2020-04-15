@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 1
+  hitSound: {fileID: 8300000, guid: ae745028dd6d666488c6f136947ab783, type: 3}

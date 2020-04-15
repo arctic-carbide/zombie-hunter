@@ -7,7 +7,7 @@ public class SpawnEnemy : MonoBehaviour
     public GameObject enemy;
 
     private Transform[] spawnPoints;
-    private int cooldown = 2;
+    public float cooldown = 0.5f;
     private bool locked = false;
     private int num = 0;
 

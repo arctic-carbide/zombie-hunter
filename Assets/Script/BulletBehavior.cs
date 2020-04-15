@@ -20,6 +20,8 @@ public class BulletBehavior : MonoBehaviour
     private Vector2 direction;
     private float lookAngle;
 
+    public float speed = 25f;
+
 
     // Start is called before the first frame update
     void Update()
@@ -36,7 +38,7 @@ public class BulletBehavior : MonoBehaviour
     private void FireBullet(){
         GameObject firedBullet = Instantiate(bullet, transform.position, transform.rotation);
         Physics2D.IgnoreCollision(transform.parent.GetComponent<Collider2D>(), firedBullet.GetComponent<Collider2D>());
-        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * 5f;
+        firedBullet.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
 
         // bang.Play();                
         AudioSource.PlayClipAtPoint(bang.clip, Camera.main.transform.position);

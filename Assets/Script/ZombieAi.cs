@@ -20,6 +20,20 @@ public class ZombieAi : MonoBehaviour {
     private int currentTarget;    
     private Transform[] waypoints = null;
 
+    private AudioSource source;
+    private bool isPlaying = false;
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+        GetComponent<HealthSystem>().OnDeathEvent += PlayDeathSound;
+    }
+
+    private void PlayDeathSound()
+    {
+        AudioSource.PlayClipAtPoint(source.clip, Camera.main.transform.position);
+    }
+
     // This runs when the zombie is added to the scene
     private void Awake()
     {
@@ -31,6 +45,8 @@ public class ZombieAi : MonoBehaviour {
 
         // Add all our waypoints into the waypoints array
         waypoints = GameObject.Find("Waypoints").GetComponentsInChildren<Transform>();
+
+       // source = GetComponent<AudioSource>();
         
         //Transform point1 = GameObject.Find("p1").transform;
         //Transform point2 = GameObject.Find("p2").transform;
@@ -61,6 +77,17 @@ public class ZombieAi : MonoBehaviour {
         
     }
 
+
+    //private IEnumerator RecurringSound()
+    //{
+    //    isPlaying = true;
+
+    //    AudioSource.PlayClipAtPoint(source.clip, Camera.main.transform.position);
+    //    yield return new WaitForSeconds(5);
+
+    //    isPlaying = false;
+    //}
+
     private void Update()
     {
         // If chasing get the position of the player and point towards it
@@ -75,6 +102,11 @@ public class ZombieAi : MonoBehaviour {
         {
             transform.Translate(walkSpeed * direction * Time.deltaTime, Space.World);
         }
+
+        //if (!isPlaying)
+        //{
+        //    StartCoroutine(RecurringSound());
+        //}
         
     }
 
